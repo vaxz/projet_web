@@ -1,0 +1,53 @@
+.nav_bar {
+    display: block;
+    height: 100px;
+    background-color: #C6C6C6;
+}
+
+h1 a {
+    position: absolute;
+    display: block;
+    width: 55px;
+    height: 78px;
+    background-image: url("logo.png");
+    text-indent: -9999px;
+    top: 31px;
+    left: 53px;
+}
+
+ul {
+    position: absolute;
+    top: 65px;
+    left: 131px;
+    width: 90%;
+}
+
+.nav_items > ul > li {
+    display: inline-block;
+    width: 22.5%;
+}
+
+.nav_items > ul > li > a {
+    display: block;
+    border: solid 1px;
+    margin-left: 0px;
+    margin-right: 0px;
+    /*width : 5%;*/
+    /*height: 3em;*/
+    text-align: center;
+    border-color: black;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 2em;
+    
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    cursor: wait;
+    height: 1000px;
+}
