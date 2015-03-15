@@ -1,7 +1,15 @@
 .nav_bar {
+    position:absolute;
+    top: 0px;
+    left: 0px;
     display: block;
     height: 100px;
-    background-color: #C6C6C6;
+    width: 100%;
+    background: -moz-linear-gradient(90deg, #FFC21C 0%, #FFFFFF 100%);  /*firefox*/
+    background: -webkit-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* safari5.1+,chrome10+ */
+    background: -o-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* opera 11.10+ */
+    background: -ms-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* ie10+ */ 
+    border-top: none;
 }
 
 h1 a {
@@ -11,15 +19,15 @@ h1 a {
     height: 78px;
     background-image: url("logo.png");
     text-indent: -9999px;
-    top: 31px;
+    top: 12px;
     left: 53px;
 }
 
 div>ul {
     position: absolute;
-    top: 65px;
-    left: 131px;
-    width: 90%;
+    top: 44px;
+    left: 175px;
+    width: 65%;
 }
 
 .nav_items > ul > li {
@@ -48,6 +56,6 @@ a {
 }
 
 body {
-    cursor: wait;
+    cursor: default;
     height: 1000px;
 }
