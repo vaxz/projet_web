@@ -15,7 +15,7 @@ h1 a {
     left: 53px;
 }
 
-ul {
+div>ul {
     position: absolute;
     top: 65px;
     left: 131px;
