@@ -1,15 +1,18 @@
 .nav_bar {
-    position:absolute;
-    top: 0px;
-    left: 0px;
-    display: block;
-    height: 100px;
-    width: 100%;
-    background: -moz-linear-gradient(90deg, #FFC21C 0%, #FFFFFF 100%);  /*firefox*/
-    background: -webkit-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* safari5.1+,chrome10+ */
-    background: -o-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* opera 11.10+ */
-    background: -ms-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* ie10+ */ 
-    border-top: none;
+position: relative;
+display: block;
+height: 100px;
+width: 100%;
+top: 0px;
+left: 0px;
+margin-top: 0%;
+margin-right: 45%;
+margin-left: 0%;
+background: -moz-linear-gradient(90deg, #FFC21C 0%, #FFFFFF 100%);  /*firefox*/
+background: -webkit-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* safari5.1+,chrome10+ */
+background: -o-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* opera 11.10+ */
+background: -ms-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* ie10+ */
+border-top: none;
 }
 
 h1 a {
@@ -58,4 +61,6 @@ a {
 body {
     cursor: default;
     height: 1000px;
+    width: 100%;
+    margin-left: 0px;
 }
