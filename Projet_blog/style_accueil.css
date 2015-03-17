@@ -1,0 +1,66 @@
+.nav_bar {
+position: relative;
+display: block;
+height: 100px;
+width: 100%;
+top: 0px;
+left: 0px;
+margin-top: 0%;
+margin-right: 45%;
+margin-left: 0%;
+background: -moz-linear-gradient(90deg, #FFC21C 0%, #FFFFFF 100%);  /*firefox*/
+background: -webkit-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* safari5.1+,chrome10+ */
+background: -o-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* opera 11.10+ */
+background: -ms-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* ie10+ */
+border-top: none;
+}
+
+h1 a {
+    position: absolute;
+    display: block;
+    width: 55px;
+    height: 78px;
+    background-image: url("logo.png");
+    text-indent: -9999px;
+    top: 12px;
+    left: 53px;
+}
+
+div>ul {
+    position: absolute;
+    top: 44px;
+    left: 175px;
+    width: 65%;
+}
+
+.nav_items > ul > li {
+    display: inline-block;
+    width: 22.5%;
+}
+
+.nav_items > ul > li > a {
+    display: block;
+    border: solid 1px;
+    margin-left: 0px;
+    margin-right: 0px;
+    /*width : 5%;*/
+    /*height: 3em;*/
+    text-align: center;
+    border-color: black;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 2em;
+    
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    cursor: default;
+    height: 1000px;
+    width: 100%;
+    margin-left: 0px;
+}
