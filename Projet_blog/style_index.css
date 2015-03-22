@@ -1,3 +1,8 @@
+html{
+
+    height: 100%;
+}
+
 header{
     margin-bottom: 8%;
 }
@@ -60,7 +65,8 @@ body {
     text-align: justify;
     font-family: arial sans serif;
     font-size: 11pt;
-    margin-bottom: -1%;
+    height: inherit;
+    margin-bottom: -2%;
 }
 
 body>div {
@@ -73,73 +79,44 @@ body>div {
     border:solid;
     text-align:center;
 }
-    
+
 article{
 
-    background-color: #88B878;
+    background-color:#6D9360;
     padding-top: 2%;
     padding-left: 2%;
     padding-right: 3%;
     padding-bottom: 3%;
-
+    height: inherit;
 }
 
-article>h1:first-child{
+article>section:first-child {
 
-    text-align: center;
-    font-variant: small-caps;
-    font-size: 20pt;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size:16pt;
 }
 
-
-article>div {
-
-    display:inline-block;
-    width: 40%;
-    vertical-align: middle;
-}
-
-article>aside{
-
-    display: inline-block;
+article>section:not(:first-child) {
+    border: 3px solid ;
+    border-radius: 1em 1em  1em  1em;
     padding-left: 3%;
-    vertical-align: middle;
-}
-
-article h1:not(:first-child) {
-
-    padding-left: 5%;
-    font-size: 14pt;
-}
-
-article h2 {
-
-    padding-left: 10%;
-    font-size: 12pt;
-}
-
-article+div{
-    position: relative;
-    border:solid;
-    width:inherit;
-    text-align:center;
-    padding-bottom: 1%;
-    margin-bottom: 1%;
-}
-
-article+div>h1{
-    margin-top: 0%;
-    margin-bottom: 0%;
+    padding-right: 3%;
+    background-color: #88B878;
 
 }
+article>section h1 {
+   text-align: center;
+   font-size: 13pt;
+   font-variant: small-caps;
 
-article+div>textarea{
-
-    width:99.5%;
-    margin-bottom: 1%;
+}
+article>section a{
+    color:#009933;
 }
 
 footer{
+    position: relative;
     padding-top: 1%;
     border-top: solid 1px;
     background-color:#6D9360;
