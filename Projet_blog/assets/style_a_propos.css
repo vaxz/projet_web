@@ -1,4 +1,5 @@
 html{
+
     height: 100%;
 }
 
@@ -7,15 +8,15 @@ header{
 }
 
 header nav {
-    background: -moz-linear-gradient(90deg, #FFC21C 0%, #FFFFFF 100%);  /*firefox*/
-    background: -webkit-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* safari5.1+,chrome10+ */
-    background: -o-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* opera 11.10+ */
-    background: -ms-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* ie10+ */
-    position: absolute;
-    height: 100px;
-    width: 100%;
-    top: 0px;
-    left: 0px;
+position: absolute;
+height: 100px;
+width: 100%;
+top: 0px;
+left: 0px;
+background: -moz-linear-gradient(90deg, #FFC21C 0%, #FFFFFF 100%);  /*firefox*/
+background: -webkit-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* safari5.1+,chrome10+ */
+background: -o-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* opera 11.10+ */
+background: -ms-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* ie10+ */
 }
 
 header nav h1{
@@ -58,7 +59,9 @@ header nav a {
 }
 
 body {
-    background: #989A9A;
+    background-color:#6E6E59;
+    margin-left: 11%;
+    margin-right: 11%;
     text-align: justify;
     font-family: arial sans serif;
     font-size: 11pt;
@@ -66,7 +69,7 @@ body {
     margin-bottom: -2%;
 }
 
-body>form {
+body>div {
 
     position:absolute;
     top:15.5%;
@@ -84,11 +87,7 @@ article{
     padding-left: 2%;
     padding-right: 3%;
     padding-bottom: 3%;
-    margin-right: 11%;
-    margin-left: 11%;
     height: inherit;
-    display: inline-block;
-    margin-top: 50px;
 }
 
 article>section{
@@ -98,27 +97,6 @@ article>section{
     font-size:16pt;
 }
 
-<<<<<<< Updated upstream
-article>section:not(:first-child) {
-    border: 3px solid ;
-    border-radius: 1em 1em  1em  1em;
-    padding-left: 3%;
-    padding-right: 3%;
-    background-color: none; /*#88B878*/
-
-}
-article>section h1 {
-   text-align: center;
-   font-size: 13pt;
-   font-variant: small-caps;
-
-}
-article>section a{
-    color:#009933;
-}
-
-=======
->>>>>>> Stashed changes
 footer{
     position: relative;
     padding-top: 1%;

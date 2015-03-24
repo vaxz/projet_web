@@ -3,11 +3,15 @@ header{
 }
 
 header nav {
-    position: absolute;
-    height: 100px;
-    width: 100%;
-    top: 0px;
-    left: 0px;
+position: absolute;
+height: 100px;
+width: 100%;
+top: 0px;
+left: 0px;
+background: -moz-linear-gradient(90deg, #FFC21C 0%, #FFFFFF 100%);  /*firefox*/
+background: -webkit-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* safari5.1+,chrome10+ */
+background: -o-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* opera 11.10+ */
+background: -ms-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* ie10+ */
 }
 
 header nav h1{
@@ -50,10 +54,7 @@ header nav a {
 }
 
 body {
-    background: -moz-linear-gradient(90deg, #FFC21C 80%, #FFFFFF 100%);  /*firefox*/
-    background: -webkit-linear-gradient(90deg, #ffc21c 80%, #ffc21c 100%); /* safari5.1+,chrome10+ */
-    background: -o-linear-gradient(90deg, #ffc21c 80%, #ffc21c 100%); /* opera 11.10+ */
-    background: -ms-linear-gradient(90deg, #ffc21c 80%, #ffc21c 100%); /* ie10+ */
+    background-color:#6E6E59;
     margin-left: 11%;
     margin-right: 11%;
     text-align: justify;
@@ -62,7 +63,7 @@ body {
     margin-bottom: -1%;
 }
 
-body>form {
+body>div {
 
     position:absolute;
     border:solid 1px;
@@ -91,8 +92,6 @@ article{
     padding-left: 2%;
     padding-right: 3%;
     padding-bottom: 3%;
-    display: inline-block;
-    margin-top: 50px;
 
 }
 
