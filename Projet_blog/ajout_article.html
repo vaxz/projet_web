@@ -21,7 +21,7 @@
 		</header>
 
 		<div>
-			<form action="http://champin.net/enseignement/intro-web/_static/formproc/debug">
+			<form action="liste_articles.html">
 				<h3>Recherche</h3>
 				<textarea placeholder="Saisir votre recherche" name="recherche"></textarea>
 				<button>Valider</button>
@@ -30,15 +30,17 @@
 
 		<article>
 			<section>
-				Si vous souhiates ajoutez vos artilces 
+				Si vous souhaitez ajouter vos articles, n'hésitez pas.
 			</section>
 
-		  <section>
-			<h1><a href="articles.html">La fabrication de la bière</a> date : 22/03/2015</h1>
-			Cet article parle de la fabrication de la bière comme l'indique le titre de l'article. A travers lui, il s'agit de présenter de manière non-exhaustive cette fameuse boisson alcoolisée sous différents angles.
-
-			<h1>Afficher dernier commentaire.</h1>
-		  </section>
+		  <form action="erreur.html">
+		  	<input placeholder="Nom" name="nom">
+			<input placeholder="Prénom" name="prenom">
+		  	<textarea rows="40" cols="120" placeholder="Rédiger votre article" name="article"></textarea>
+		  	<textarea rows="10" cols="120" placeholder="Rédiger votre resume" name="resume"></textarea>
+		  	<p>Ajouter vos fichiers d'illustrations <input type="file"></p>
+			<button>Valider</button>
+		  </form>
 		</article>
 
 		<footer>
