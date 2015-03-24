@@ -101,11 +101,9 @@ article>section:first-child {
 article>section:not(:first-child) {
     border: 3px solid ;
     border-radius: 1em 1em  1em  1em;
-    padding-left: 3%;
-    padding-right: 3%;
     background-color: #88B878;
-
 }
+
 article>section h1 {
    text-align: center;
    font-size: 13pt;
@@ -114,6 +112,21 @@ article>section h1 {
 }
 article>section a{
     color:#009933;
+}
+
+article>section>section{
+    text-align: center;
+    font-weight: bold;
+    background-color: #A0C693;
+    border-top: dashed 2px;
+    margin-top: 1%;
+    padding-top: 1%;
+    margin-bottom: -1.5%;
+    border-radius-: 
+}
+article>section section>p{
+
+    font-weight: normal;
 }
 
 footer{

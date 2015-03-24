@@ -14,16 +14,26 @@
 					<h1> BEEEER !!!</h1>
 					<ul><li><a href="index.html">Accueil</a></li>
 						<li><a href="articles.html">Articles</a></li>
-						<li><a href="recherche.html">Ajouter un article</a></li>
+						<li><a href="ajout_article.html">Ajouter un article</a></li>
 						<li><a href="a_propos.html">A propos</a></li>
 					</ul>
 				</nav>
 		</header>
 
+<<<<<<< Updated upstream
 		<form>
 			<label>Rechercher<textarea placeholder="Rechercher..."></textarea></label>
 			<button>Valider</button>
 		</form>
+=======
+		<div>
+			<form action="http://champin.net/enseignement/intro-web/_static/formproc/debug">
+				<h3>Recherche</h3>
+				<textarea placeholder="Saisir votre recherche" name="recherche"></textarea>
+				<button>Valider</button>
+			</form>
+		</div>
+>>>>>>> Stashed changes
 
 		<article>
 			<h1>La fabrication de la bière</h1>
@@ -88,9 +98,13 @@
 		</article>
 
 		<div>
-			<h1>Commentaire</h1>
-			<textarea placeholder="type your message">Votre commentaire</textarea>
-			<button>Valider</button>
+			<form action="http://champin.net/enseignement/intro-web/_static/formproc/debug">
+				<h1>Commentaire</h1>
+				<section> Anonyme 2 Date 25/03/2015 <p>C'est vraiment très interessant comme article</p></section>
+				<section> Anonyme 1 Date 21/03/2015 <p>C'était juste pour rien dire</p></section>
+				<textarea placeholder="Votre commentaire" name="comentaire"></textarea>
+				<button>Valider</button>
+			</form>
 		</div>
 
 		<footer>

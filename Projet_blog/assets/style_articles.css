@@ -65,12 +65,23 @@ body {
 body>form {
 
     position:absolute;
+    border:solid 1px;
     top:15.5%;
     right:0%;
-    width:10.5%;
+    width:10.8%;
     height:30%;
-    border:solid;
     text-align:center;
+    background-color:#6D9360;
+}
+
+body>div textarea {
+
+    width: 95%;
+}
+
+body>div button{
+
+    margin-top: 10%;
 }
     
 article{
@@ -121,27 +132,59 @@ article h2 {
 
 article+div{
     position: relative;
-    border:solid;
-    width:inherit;
     text-align:center;
+    background-color: #88B878;
+    width:inherit;
     padding-bottom: 1%;
-    margin-bottom: 1%;
+    border: none;
 }
 
-article+div>h1{
+article+div>form{
+
+    border:solid 1px;
+    border-radius: 1em 1em 1em 1em;
+    margin-right:1%;
+    margin-left: 1%;
+    width:inherit;
+}
+
+article+div h1{
     margin-top: 0%;
     margin-bottom: 0%;
+    border-bottom: dashed 2px;
 
 }
 
-article+div>textarea{
+article+div section{
+    margin-top: 0%;
+    margin-bottom: 0%;
+    font-weight: bold;
+    background-color: #A0C693;
+    border-bottom: dashed 2px;
 
-    width:99.5%;
-    margin-bottom: 1%;
+}
+article+div section>p{
+
+    font-weight: normal;
+}
+
+article+div textarea{
+
+    margin-top: 1%;
+    width:98%;
+}
+
+article+div button{
+
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
 }
 
 footer{
+
+    position: relative;
     padding-top: 1%;
-    border-top: solid 1px;
+    padding-bottom: 1%;
+    border-top: solid 2px;
     background-color:#6D9360;
 }
