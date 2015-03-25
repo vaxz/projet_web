@@ -34,7 +34,7 @@ header nav ul {
 }
 
 header nav li {
-    display: inline;
+    display: block;
     margin-left: -0.1%;
     margin-right: -0.1%;
 }
@@ -54,25 +54,27 @@ header nav a {
 }
 
 body {
+    padding-top: 20.6%;
     background-color:#FFC21C;
-    margin-left: 11%;
-    margin-right: 11%;
+    margin-left: 10%;
+    margin-right: 10%;
     text-align: justify;
     font-family: arial sans serif;
     font-size: 11pt;
+    height: inherit;
     margin-bottom: -2%;
 }
 
-
 body>div {
 
-    position:absolute;
+    position: absolute;
     border:solid 1px;
-    top:15.5%;
+    top:2.3%;
     right:0%;
     width:10.8%;
     height:30%;
     text-align:center;
+    font-size: 75%;
     background-color:#6D9360;
 }
 
@@ -85,47 +87,102 @@ body>div button{
 
     margin-top: 10%;
 }
-
+    
 article{
 
-    background-color:#6D9360;
+    background-color: #88B878;
     padding-top: 2%;
     padding-left: 2%;
     padding-right: 3%;
     padding-bottom: 3%;
-    height: inherit;
+
 }
 
-article>section{
+article>h1:first-child{
 
-    padding-top: 2%;
-    padding-bottom: 2%;
-    font-size:16pt;
+    text-align: center;
+    font-variant: small-caps;
+    font-size: 20pt;
 }
 
-article>form>*{
+
+article>div {
 
     display:block;
-    margin-top: 2%;
-    margin-bottom: 2%;
+}
+
+article>aside{
+
+    display:block;
+}
+
+article h1:not(:first-child) {
+
+    padding-left: 5%;
+    font-size: 14pt;
+}
+
+article h2 {
+
+    padding-left: 10%;
+    font-size: 12pt;
+}
+
+article+div{
+    position: relative;
+    text-align:center;
+    background-color: #88B878;
+    width:inherit;
+    padding-bottom: 1%;
+    border: none;
+}
+
+article+div>form{
+
+    border:solid 1px;
+    border-radius: 1em 1em 1em 1em;
+    margin-right:1%;
+    margin-left: 1%;
+    width:inherit;
+}
+
+article+div h1{
+    margin-top: 0%;
+    margin-bottom: 0%;
+    border-bottom: dashed 2px;
 
 }
 
-article>form>textarea{
-
-    width: 100%;
-}
-
-article>form>textarea+* {
-
-    display:inline-block;
+article+div section{
+    margin-top: 0%;
+    margin-bottom: 0%;
+    font-weight: bold;
+    background-color: #A0C693;
+    border-bottom: dashed 2px;
 
 }
+article+div section>p{
 
+    font-weight: normal;
+}
+
+article+div textarea{
+
+    margin-top: 1%;
+    width:98%;
+}
+
+article+div button{
+
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+}
 
 footer{
+
     position: relative;
     padding-top: 1%;
-    border-top: solid 1px;
+    padding-bottom: 1%;
+    border-top: solid 2px;
     background-color:#6D9360;
 }

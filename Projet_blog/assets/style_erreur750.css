@@ -1,3 +1,8 @@
+html{
+
+    height: 100%;
+}
+
 header{
     margin-bottom: 8%;
 }
@@ -34,7 +39,7 @@ header nav ul {
 }
 
 header nav li {
-    display: inline;
+    display: block;
     margin-left: -0.1%;
     margin-right: -0.1%;
 }
@@ -54,25 +59,28 @@ header nav a {
 }
 
 body {
+    padding-top: 20.6%;
     background-color:#FFC21C;
     margin-left: 11%;
     margin-right: 11%;
     text-align: justify;
     font-family: arial sans serif;
     font-size: 11pt;
+    height: inherit;
     margin-bottom: -2%;
 }
 
 
 body>div {
 
-    position:absolute;
+    position: absolute;
     border:solid 1px;
-    top:15.5%;
+    top:2.3%;
     right:0%;
     width:10.8%;
     height:30%;
     text-align:center;
+    font-size: 75%;
     background-color:#6D9360;
 }
 
@@ -87,41 +95,16 @@ body>div button{
 }
 
 article{
-
     background-color:#6D9360;
-    padding-top: 2%;
+    padding-top: 10%;
     padding-left: 2%;
     padding-right: 3%;
     padding-bottom: 3%;
     height: inherit;
-}
-
-article>section{
-
-    padding-top: 2%;
-    padding-bottom: 2%;
-    font-size:16pt;
-}
-
-article>form>*{
-
-    display:block;
-    margin-top: 2%;
-    margin-bottom: 2%;
+    text-align: center;
+    font-size: 20pt;
 
 }
-
-article>form>textarea{
-
-    width: 100%;
-}
-
-article>form>textarea+* {
-
-    display:inline-block;
-
-}
-
 
 footer{
     position: relative;

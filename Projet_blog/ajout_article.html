@@ -3,7 +3,8 @@
 
 	<head>
 		<meta charset="utf-8"/>
-		<link rel="stylesheet" href="assets/style_ajout_article.css" />
+		<link rel="stylesheet" type="text/css" media="screen and (min-width:750px)" href="assets/style_ajout_article.css" />
+		<link rel="stylesheet" type="text/css" media="screen and (max-width:750px)" href="assets/style_ajout_article750.css" />
 		<title> BEEEER !!! </title>
 	</head>
 
@@ -36,8 +37,8 @@
 		  <form action="erreur.html">
 		  	<input placeholder="Nom" name="nom">
 			<input placeholder="Prénom" name="prenom">
-		  	<textarea rows="40" cols="120" placeholder="Rédiger votre article" name="article"></textarea>
-		  	<textarea rows="10" cols="120" placeholder="Rédiger votre resume" name="resume"></textarea>
+		  	<textarea rows="40" placeholder="Rédiger votre article" name="article"></textarea>
+		  	<textarea rows="40" placeholder="Rédiger votre resume" name="resume"></textarea>
 		  	<p>Ajouter vos fichiers d'illustrations <input type="file"></p>
 			<button>Valider</button>
 		  </form>
