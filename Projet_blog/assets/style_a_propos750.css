@@ -20,13 +20,12 @@ background: -ms-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* ie10+ */
 }
 
 header nav h1{
-    position: absolute;
+    position: relative;
     background-image: url("logo.png");
     background-repeat: no-repeat;
     text-indent: 70px;
     font-size: 22pt;
-    top: -5px;
-    left: 80px;
+    margin-left: 3%;
     height: 79px;
 
 }

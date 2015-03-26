@@ -20,13 +20,12 @@ background: -ms-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* ie10+ */
 }
 
 header nav h1{
-    position: absolute;
+    position: relative;
     background-image: url("logo.png");
     background-repeat: no-repeat;
     text-indent: 70px;
     font-size: 22pt;
-    top: -5px;
-    left: 80px;
+    margin-left: 3%;
     height: 79px;
 
 }
@@ -103,45 +102,43 @@ article{
     height: inherit;
 }
 
-article>section:first-child {
+article>section {
 
     padding-top: 2%;
     padding-bottom: 2%;
     font-size:16pt;
 }
 
-article>section:nth-child(2) {
-    border: 3px solid ;
-    border-radius: 1em 1em  0em  0em;
-    border-bottom: none;
-    background-color: #88B878;
-    padding-bottom: 1%;
-}
+article>table {
 
-article>section:nth-child(2) h1 {
-   text-align: center;
-   font-size: 13pt;
-   font-variant: small-caps;
-
-}
-article>section:nth-child(2) a{
-    color:#009933;
-}
-
-article>section:last-child{
+    width:50%;
+    height: 20%;
+    background-color: #6D9360;
+    border : solid;
+    border-width : 3px;
+    border-radius : 0.5em 0.5em 0.5em 0.5em;
+    padding : 1em 0.5em 1em 0.5em ;
     text-align: center;
-    font-weight: bold;
-    background-color: #A0C693;
-    border-top: dashed 2px;
-    border-bottom: 3px solid ;
-    border-left: 3px solid ;
-    border-right: 3px solid ;
-    border-radius: 0em 0em  1em  1em;
 }
-article>section:last-child>p{
 
-    font-weight: normal;
-}
+th{
+   height: 50px ;
+   background-color: #88B878;
+   border: solid;
+   border-width : 1px;
+   padding-right : 1%;
+   }
+        
+td
+   {
+    width : 60px ;
+    height: 60px ;
+    border: solid;
+    border-width : 2px;
+    background-color: #88B878;
+    }
+
+
 
 footer{
     position: relative;
