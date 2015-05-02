@@ -1,0 +1,117 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width" charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" media="screen and (min-width:750px)" href="assets/style_articles.css" />
+		<link rel="stylesheet" type="text/css" media="screen and (max-width:750px)" href="assets/style_articles750.css" />
+		<title> BEEEER !!! </title>
+	</head>
+
+	<body>
+
+		<header>
+				<nav>
+					<h1> BEEEER !!!</h1>
+					<ul><li><a href="../index.php">Accueil</a></li>
+						<li><a href="../liste_articles.php">Articles</a></li>
+						<li><a href="../ajout_article.html">Ajouter un article</a></li>
+						<li><a href="../a_propos.html">A propos</a></li>
+					</ul>
+				</nav>
+		</header>
+
+		<div>
+			<form action="liste_articles.php" method="post">
+				<h3>Recherche</h3>
+				<textarea placeholder="Saisir votre recherche" name="recherche"></textarea>
+				<button>Valider</button>
+			</form>
+		</div>
+
+		<article>
+			<h1>La fabrication de la bière</h1>
+			
+			
+				<h1>Définition</h1>
+				<p>L'une des premières définitions légales de la bière date de 1516 avec le <em>"Reinheitsgebot"</em>. Le fameux édit de pureté Baverois stipulant que la bière doit être composée uniquement des ingrédients suivants : orge, houblon et eau.
+				La levure à cette époque n'étant pas connue, elle ne figure pas dans la liste. Ces éléments sont les composants primaires
+				pour fabriquer une bière bien que d'autres éléments peuvent être utilisés.<p>
+						
+			  <div>
+				<h1>Processus de fabrication</h1>
+				<h2>La maltage</h2>
+				Le principe du maltage consiste à faire germer les grains d'orge; afin qu'ils produisent certaines enzymes
+				nécessaires à la dégradation de l'amidon en sucres. Il peut être précédé ou suivi d'une torréfaction, cas de la
+				Guinness.
+			
+				<h2>La saccharification</h2>
+				La saccharification consiste à transformer les sucres complexes (amidon) contenus dans le grain en sucres simples,
+				grâce à l'action des enzymes du malt, activées par chauffage. On concasse grossièrement le malt avant de l'hydrater
+				avec de l'eau ce qui forme la « maische ». Ce mélange va ensuite être chauffé, il existe trois principales techniques :
+				<ul><li><strong>la décoction</strong> : on retire une partie du brassin que l'on porte à ébullition avant de l'incorporer
+					à la maische,
+					on appelle cela une « trempe ». Plusieurs trempes sont pratiquées afin d'augmenter graduellement la température.
+					Cette technique est utilisée pour la fermentation basse.</li>
+			    	<li><strong>l'infusion par palier</strong> : on chauffe l'eau avec la maische, ou on incorpore à intervalle régulier de l'eau très chaude. C'est une méthode très flexible et précise.</li>
+			    	<li><strong>l'infusion simple</strong> : on chauffe de l'eau que l'on incorpore au malt.</li></ul>
+			  </div>
+			
+			  <aside><img src="assets/fabrication-infographie.gif" alt="Image : processus de fabrication de la bière"></aside>
+			    
+			    <p>On extrait ensuite le « moût primitif » de la maische en filtrant et en percolant avec de l'eau chaude (comme
+				pour du café) dans une cuve spéciale appelée « cuve filtre ». Le résidu solide s'appelle la « drêche » et est
+				recyclé pour nourrir le bétail.</p>
+
+				<h2>L'aromatisation ou houblonnage</h2>
+				C'est à cette étape que l'on incorpore le houblon et parfois des épices. Le mélange est porté à ébullition. L'ébullition
+				est propice à l'apparition des saveurs amères. L'amertume provient essentiellement d'une résine jaunâtre produite par les
+				cônes femelles du houblon : la lupuline. Cette étape est réalisée durant la « cuisson » du moût. L'ébullition a pour
+				principal intérêt de détruire les enzymes dont le rôle est alors terminé.
+			 
+				<h2>La fermentation</h2>
+				La fermentation est une étape cruciale dans la fabrication de la bière. Cette fermentation se décompose en deux stades :
+				la fermentation principale, qui dure de 3 à 10 jours à une température de 18 à 26 °C et la fermentation secondaire
+				(haute ou basse), dépendant des levures utilisées et de la température de fermentation.
+				La fermentation est l'étape à laquelle on ajoute des levures afin de produire l'alcool. Le « levain » est la quantité de
+				levure nécessaire pour ensemencer tout ou partie du moût destiné à la fermentation. Il existe trois principales méthodes
+				de fermentation :
+				<ul><li><strong>la fermentation basse</strong> : elle se déroule à une température comprise entre 5 °C et 14 °C. L'une des
+					levures utilisée est <cite><ins>Saccharomyces uvarum</ins></cite>. Cette fermentation dure une dizaine de jours. À la fin de la fermentation, les levures sédimentent au fond de la cuve, d'où le nom de fermentation basse. Il s'agit d'une fermentation caractéristique des <ins>Lagers</ins>.</li>
+    			    <li><strong>la fermentation haute</strong> : elle se déroule à une température comprise entre 15 °C et 20 °C. L'une des levures utilisée est <cite><ins>Saccharomyces cerevisiae</ins></cite>. Cette fermentation dure de 4 à 8 jours. Au contraire de la fermentation basse, les levures migrent à la surface du brassin, d'où son nom. Il s'agit d'une fermentation caractéristique des <ins>Ales</ins>.</li>
+			    	<li><strong>la fermentation spontanée</strong> : elle se déroule sans ajout de levures cultivées, seulement par contamination « sauvage » de levures et bactéries en suspension dans l'air ambiant. Les levures retrouvées sont
+			    	<cite><ins>Brettanomyces bruxellensis</ins></cite> et <cite><ins>Brettanomyces lambicus</ins></cite> qui sont endémiques à la vallée de la Senne (région de Bruxelles) et de la région de Pajottenland. Il s'agit d'une fermentation caractéristique des <ins>Lambics</ins>.</li>
+			    </ul>
+			
+				La fermentation est généralement (sauf pour les blanches) suivie par une « clarification » qui permet de retirer les levures
+				et les impuretés. Outre la garde qui permet une décantation des particules de levures, protéines coagulées et résidus de
+				houblon, certaines brasseries utilisent des filtres micrométriques à diatomées ou encore une centrifugeuse. Il arrive
+				d'ailleurs que la bière subisse une pasteurisation afin de s'assurer d'un produit aseptisé.
+				Enfin, beaucoup plus rare, il existe également une fermentation mixte.
+		    
+		</article>
+
+		<div>
+			<form action=# method="post">
+				<h1>Commentaire</h1>
+				<?php
+					include ("../requete_index.php");
+					for ($i=0; $i<count($article); $i++) {
+						echo (
+							  "<section>".$article[$i]['pseudonyme']." Date : ".$article[$i]['date']."<p>".$article[$i]['commentaire'].
+							  "</p></section>"
+							  );
+					}
+				?>
+				<textarea placeholder="Votre commentaire" name="commentaire"></textarea>
+				<button>Valider</button>
+				<?php if( !empty($_POST['commentaire']) ) include ("ajout_commentaire.php") ?>
+			</form>
+		</div>
+
+		<footer>
+			Site réalisé par : Florian Coindet et Xavier Sottiaux
+		</footer>
+	</body>
+</html>
+
