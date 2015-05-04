@@ -1,35 +1,4 @@
-﻿<!DOCTYPE HTML>
-<html>
-
-	<head>
-		<meta name="viewport" content="width=device-width" charset="utf-8"/>
-		<link rel="stylesheet" type="text/css" media="screen and (min-width:750px)" href="assets/style_articles.css" />
-		<link rel="stylesheet" type="text/css" media="screen and (max-width:750px)" href="assets/style_articles750.css" />
-		<title> BEEEER !!! </title>
-	</head>
-
-	<body>
-
-		<header>
-				<nav>
-					<h1> BEEEER !!!</h1>
-					<ul><li><a href="../index.php">Accueil</a></li>
-						<li><a href="../liste_articles.php">Articles</a></li>
-						<li><a href="../ajout_article.html">Ajouter un article</a></li>
-						<li><a href="../a_propos.html">A propos</a></li>
-					</ul>
-				</nav>
-		</header>
-
-		<div>
-			<form action="liste_articles.php" method="post">
-				<h3>Recherche</h3>
-				<textarea placeholder="Saisir votre recherche" name="recherche"></textarea>
-				<button>Valider</button>
-			</form>
-		</div>
-
-		<article>
+<article>
 			<h1>La fabrication de la bière</h1>
 			
 			
@@ -57,7 +26,7 @@
 			    	<li><strong>l'infusion simple</strong> : on chauffe de l'eau que l'on incorpore au malt.</li></ul>
 			  </div>
 			
-			  <aside><img src="assets/fabrication-infographie.gif" alt="Image : processus de fabrication de la bière"></aside>
+			  <aside><img src="articles/assets/fabrication-infographie.gif" alt="Image : processus de fabrication de la bière"></aside>
 			    
 			    <p>On extrait ensuite le « moût primitif » de la maische en filtrant et en percolant avec de l'eau chaude (comme
 				pour du café) dans une cuve spéciale appelée « cuve filtre ». Le résidu solide s'appelle la « drêche » et est
@@ -89,29 +58,4 @@
 				d'ailleurs que la bière subisse une pasteurisation afin de s'assurer d'un produit aseptisé.
 				Enfin, beaucoup plus rare, il existe également une fermentation mixte.
 		    
-		</article>
-
-		<div>
-			<form action=# method="post">
-				<h1>Commentaire</h1>
-				<?php
-					include ("../requete_index.php");
-					for ($i=0; $i<count($article); $i++) {
-						echo (
-							  "<section>".$article[$i]['pseudonyme']." Date : ".$article[$i]['date']."<p>".$article[$i]['commentaire'].
-							  "</p></section>"
-							  );
-					}
-				?>
-				<textarea placeholder="Votre commentaire" name="commentaire"></textarea>
-				<button>Valider</button>
-				<?php if( !empty($_POST['commentaire']) ) include ("ajout_commentaire.php") ?>
-			</form>
-		</div>
-
-		<footer>
-			Site réalisé par : Florian Coindet et Xavier Sottiaux
-		</footer>
-	</body>
-</html>
-
+</article>

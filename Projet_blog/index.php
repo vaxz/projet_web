@@ -15,8 +15,8 @@
 					<h1> BEEEER !!!</h1>
 					<ul><li><a href="index.php">Accueil</a></li>
 						<li><a href="liste_articles.php">Articles</a></li>
-						<li><a href="ajout_article.html">Ajouter un article</a></li>
-						<li><a href="a_propos.html">A propos</a></li>
+						<li><a href="ajout_article.php">Ajouter un article</a></li>
+						<li><a href="a_propos.php">A propos</a></li>
 					</ul>
 				</nav>
 		</header>

@@ -28,7 +28,7 @@
 	include("bdd.php");
 	$bdd=Connect_db(); //connexion à la BDD
 
- 	$query=$bdd->prepare('SELECT T1.Titre, T1.DateCreation, T1.URL
+ 	$query=$bdd->prepare('SELECT T1.IDArticle, T1.Titre, T1.DateCreation, T1.URL
  						  FROM Article AS T1
  						  INNER JOIN Mot_clef AS T2
  						  ON T1.IDArticle=T2.IDArticle
@@ -49,6 +49,7 @@
  			if($init_tab==0){
 
  				$resultat[]=array(
+ 							'ID' => $data['IDArticle'],
 							'titre' => $data['Titre'],
 							'date' => $data['DateCreation'],
 							'url' => $data['URL']
@@ -62,6 +63,7 @@
  				if( $i<count($resultat) ){
 
  					$resultat[]=array(
+ 										'ID' => $data['IDArticle'],
 										'titre' => $data['Titre'],
 										'date' => $data['DateCreation'],
 										'url' => $data['URL']
@@ -82,7 +84,7 @@
   				"<section>Voici la liste des articles présents sur ce site correspondant à votre recherche.</section>
   				<table>
   				<tr><th>Nom de l'article</th><th>Date</th></tr>
-  				<tr><td><a href=".$resultat[$i]['url'].">".$resultat[$i]['titre']."</a></td><td>".$resultat[$i]['date']."</td>
+  				<tr><td><a href= article.php?id=".$resultat[$i]['ID'].">".$resultat[$i]['titre']."</a></td><td>".$resultat[$i]['date']."</td>
   				</tr></table>"
 				);
   		}
