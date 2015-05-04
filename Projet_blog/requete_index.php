@@ -8,7 +8,7 @@
 
 	$bdd=Connect_db(); //connexion à la BDD
 
- 	$query=$bdd->prepare('SELECT T1.Titre, T1.DateCreation, T1.URL, T1.Resume, T2.Commentaire, T2.DateCommentaire, T3.Pseudonyme
+ 	$query=$bdd->prepare('SELECT T1.IDArticle, T1.Titre, T1.DateCreation, T1.URL, T1.Resume, T2.Commentaire, T2.DateCommentaire, T3.Pseudonyme
  						  FROM Article AS T1
  						  INNER JOIN Commentaire AS T2
  						  ON T1.IDArticle=T2.IDArticle
@@ -20,6 +20,7 @@
 
  	while($data = $query->fetch()){
  		$article[]=array(
+ 						'id' => $data['IDArticle'],
 						'titre' => $data['Titre'],
 						'date' => $data['DateCreation'],
 						'url' => $data['URL'],

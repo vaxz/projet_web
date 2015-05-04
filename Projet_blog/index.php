@@ -37,7 +37,7 @@
 
 		  <section>
 		  	<?php include ("requete_index.php") ?>
-		  	<h1><?php echo ( "<a href=".$article[0]['url'].">".$article[0]['titre']."</a> ".$article[0]['date'] ); ?></h1>
+		  	<h1><?php echo ( "<a href=article.php?id=".$article[0]['id'].">".$article[0]['titre']."</a> ".$article[0]['date'] ); ?></h1>
 			<?php echo $article[0]['resume']; ?></section>
 
 			<section><?php echo $article[0]['pseudonyme']." ".$article[0]['dateCommentaire']; ?>
