@@ -28,6 +28,38 @@
 				<button>Valider</button>
 			</form>
 		</div>
+		
+			<?php
+
+				if( !empty($_SESSION['ID']) && !empty($_SESSION['MDP']) ){
+
+					echo(	'<div>
+							<form action=# method="post" >
+							<h3>Se connecter</h3>
+							<input type="text" placeholder="Identifiant" name="ID">
+							<input type="password" placeholder="Mot de passe" name="MDP">
+							<button>Connexion</button>
+							</form>
+							</div>'
+						);
+
+					if( !empty($_POST['ID']) && !empty($_POST['MDP']) ){
+						//tester le mot de passe et idnetifiant de l'utilisateur
+						$_SESSION['ID']=$_POST['ID'];
+						$_SESSION['MDP']=$_POST['MDP'];
+					}else{
+						//afficher le message d'erreur
+						echo "L'identifiant ou le mot de passe sont incorrects";
+					}
+
+				}else{
+
+
+
+				}
+					
+			?>
+
 
 		<article>
 			<section>

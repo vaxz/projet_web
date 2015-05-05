@@ -91,6 +91,25 @@ body>div button{
     margin-top: 10%;
 }
 
+body>div+div {
+
+    position:absolute;
+    border:solid 1px;
+    border-top: none;
+    top:45.8%;
+    right:0%;
+    width:10.8%;
+    height:30%;
+    text-align:center;
+    background-color:#6D9360;
+}
+
+body>div+div>form>input{
+
+    margin-bottom: 3%;
+    width: 90%;
+}
+
 
 article{
 

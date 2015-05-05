@@ -62,14 +62,6 @@
 				<button>Valider</button>
 			</form>
 		</div>
-		<!--<div>
-			<form action="" method="post">
-				<h3>Authentification</h3>
-				<textarea placeholder="Saisir votre recherche" name="recherche"></textarea>
-				<button>Valider</button>
-			</form>
-		   </div>
-		-->
 
 		<?php
 			
