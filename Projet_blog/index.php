@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE HTML>
 <html>
 
@@ -10,56 +11,7 @@
 
 	<body>
 
-		<header>
-				<nav>
-					<h1> BEEEER !!!</h1>
-					<ul><li><a href="index.php">Accueil</a></li>
-						<li><a href="liste_articles.php">Articles</a></li>
-						<li><a href="ajout_article.php">Ajouter un article</a></li>
-						<li><a href="a_propos.php">A propos</a></li>
-					</ul>
-				</nav>
-		</header>
-
-		<div>
-			<form action="liste_articles.php" method="post">
-				<h3>Recherche</h3>
-				<textarea placeholder="Saisir votre recherche" name="recherche"></textarea>
-				<button>Valider</button>
-			</form>
-		</div>
-		
-			<?php
-
-				if( !empty($_SESSION['ID']) && !empty($_SESSION['MDP']) ){
-
-					echo(	'<div>
-							<form action=# method="post" >
-							<h3>Se connecter</h3>
-							<input type="text" placeholder="Identifiant" name="ID">
-							<input type="password" placeholder="Mot de passe" name="MDP">
-							<button>Connexion</button>
-							</form>
-							</div>'
-						);
-
-					if( !empty($_POST['ID']) && !empty($_POST['MDP']) ){
-						//tester le mot de passe et idnetifiant de l'utilisateur
-						$_SESSION['ID']=$_POST['ID'];
-						$_SESSION['MDP']=$_POST['MDP'];
-					}else{
-						//afficher le message d'erreur
-						echo "L'identifiant ou le mot de passe sont incorrects";
-					}
-
-				}else{
-
-
-
-				}
-					
-			?>
-
+		<?php include("element_principal.php"); ?>
 
 		<article>
 			<section>

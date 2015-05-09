@@ -1,4 +1,5 @@
-﻿<!DOCTYPE HTML>
+﻿<?php session_start() ?>
+<!DOCTYPE HTML>
 <html>
 
 	<head>
@@ -10,23 +11,7 @@
 
 	<body>
 
-		<header>
-				<nav>
-					<h1> BEEEER !!!</h1>
-					<ul><li><a href="index.php">Accueil</a></li>
-						<li><a href="liste_articles.php">Articles</a></li>
-						<li><a href="ajout_article.php">Ajouter un article</a></li>
-						<li><a href="a_propos.php">A propos</a></li>
-					</ul>
-				</nav>
-		</header>
-		<div>
-			<form action=# method="post">
-				<h3>Recherche</h3>
-				<textarea placeholder="Saisir votre recherche" name="recherche"></textarea>
-				<button>Valider</button>
-			</form>
-		</div>
+		<?php require_once("element_principal.php"); ?>
 
 		<article>
 		  

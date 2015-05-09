@@ -60,9 +60,9 @@ body {
     text-align: justify;
     font-family: arial sans serif;
     font-size: 11pt;
+    height: inherit;
     margin-bottom: -2%;
 }
-
 
 body>div {
 
@@ -84,6 +84,51 @@ body>div textarea {
 body>div button{
 
     margin-top: 10%;
+}
+
+body>div+div {
+
+    position:absolute;
+    border:solid 1px;
+    border-top: none;
+    top:45.8%;
+    right:0%;
+    width:10.8%;
+    height:30%;
+    text-align:center;
+    background-color:#6D9360;
+}
+
+body>div+div>form>input{
+
+    margin-bottom: 3%;
+    width: 90%;
+}
+
+body>div+div+div {
+
+    position:absolute;
+    border:solid 1px;
+    top:15.5%;
+    left:0%;
+    width:10.9%;
+    height:30%;
+    text-align:center;
+    background-color:#6D9360;
+}
+
+body>div+div+div>ul{
+
+    display: inline;
+    font-size: 8pt;
+    text-align:left;
+
+    
+}
+
+body>div+div+div>ul>li{
+
+    margin-bottom: 3%;    
 }
 
 article{

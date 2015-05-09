@@ -1,4 +1,5 @@
-﻿<!DOCTYPE HTML>
+﻿<?php session_start() ?>
+<!DOCTYPE HTML>
 <html>
 
 	<head>
@@ -10,24 +11,7 @@
 
 	<body>
 
-		<header>
-				<nav>
-					<h1> BEEEER !!!</h1>
-					<ul><li><a href="index.html">Accueil</a></li>
-						<li><a href="liste_articles.html">Articles</a></li>
-						<li><a href="ajout_article.html">Ajouter un article</a></li>
-						<li><a href="a_propos.html">A propos</a></li>
-					</ul>
-				</nav>
-		</header>
-
-		<div>
-			<form action="liste_articles.html">
-				<h3>Recherche</h3>
-				<textarea placeholder="Saisir votre recherche" name="recherche"></textarea>
-				<button>Valider</button>
-			</form>
-		</div>
+		<?php include("element_principal.php"); ?>
 
 		<article>
 			<section>

@@ -8,15 +8,15 @@ header{
 }
 
 header nav {
-position: absolute;
-height: 100px;
-width: 100%;
-top: 0px;
-left: 0px;
-background: -moz-linear-gradient(90deg, #FFC21C 0%, #FFFFFF 100%);  /*firefox*/
-background: -webkit-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* safari5.1+,chrome10+ */
-background: -o-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* opera 11.10+ */
-background: -ms-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* ie10+ */
+    position: absolute;
+    height: 100px;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    background: -moz-linear-gradient(90deg, #FFC21C 0%, #FFFFFF 100%);  /*firefox*/
+    background: -webkit-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* safari5.1+,chrome10+ */
+    background: -o-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* opera 11.10+ */
+    background: -ms-linear-gradient(90deg, #ffc21c 0%, #ffc21c 100%); /* ie10+ */
 }
 
 header nav h1{
@@ -108,6 +108,32 @@ body>div+div>form>input{
 
     margin-bottom: 3%;
     width: 90%;
+}
+
+body>div+div+div {
+
+    position:absolute;
+    border:solid 1px;
+    top:15.5%;
+    left:0%;
+    width:10.9%;
+    height:30%;
+    text-align:center;
+    background-color:#6D9360;
+}
+
+body>div+div+div>ul{
+
+    display: inline;
+    font-size: 8pt;
+    text-align:left;
+
+    
+}
+
+body>div+div+div>ul>li{
+
+    margin-bottom: 3%;    
 }
 
 
