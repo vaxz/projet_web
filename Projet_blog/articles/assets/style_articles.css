@@ -28,8 +28,8 @@ header nav h1{
 
 header nav ul {
     position: absolute;
-    top: 50px;
-    left: 250px;
+    top: 57px;
+    left: 240px;
     width: 65%;
 }
 
@@ -47,7 +47,7 @@ header nav a {
     border-top-right-radius: 5px;
     padding-left: 2%;
     padding-right: 2%;
-    font-size: 2em;
+    font-size: 1.5em;
     text-decoration: none;
     color: black;
     

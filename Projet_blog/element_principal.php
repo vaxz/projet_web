@@ -3,6 +3,7 @@
 					<h1> BEEEER !!!</h1>
 					<ul><li><a href="index.php">Accueil</a></li>
 						<li><a href="liste_articles.php">Articles</a></li>
+						<li><a href="creation_compte.php">Créer compte</a></li>
 						<?php if( !empty($_SESSION['statut'] )){
 							
 							if( $_SESSION['statut']=="webmaster" ) echo ("<li><a href=\"ajout_article.php\">Ajouter un article</a></li>");
@@ -101,7 +102,7 @@
 							<h3>Se connecter</h3>
 							<input type="text" placeholder="Identifiant" name="ID">
 							<input type="password" placeholder="Mot de passe" name="MDP">
-							<button>Connexion</button>
+							<button>Connexion</button><a href="creation_compte.php"><button type="button">S\'enregister</button></a>
 							</form>
 							</div>'
 						);
