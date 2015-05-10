@@ -28,7 +28,7 @@ header nav h1{
 
 header nav ul {
     position: absolute;
-    top: 57px;
+    top: 59px;
     left: 240px;
     width: 65%;
 }
@@ -112,7 +112,7 @@ body>div+div+div {
     top:15.5%;
     left:0%;
     width:10.9%;
-    height:30%;
+    height:32%;
     text-align:center;
     background-color:#6D9360;
 }
