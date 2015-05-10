@@ -61,7 +61,6 @@
 				 		$query->execute(array('%'.$mot.'%'));
 
 				 		while( $data = $query->fetch() ){
-				 			echo " parcours data " ;
 
 				 			if($init_tab==0){
 
@@ -74,9 +73,9 @@
 
 				 			}else{
 				 			//si le tableau est initialisé, il faut éviter d'insérer des doublons dans le tableau "resultat"
-				 				for( $i=0; $i<count($resultat) && $resultat[$i]['Titre']!= $data['Titre']; $i++  );
+				 				for( $i=0; $i<count($resultat) && $resultat[$i]['titre']!= $data['Titre']; $i++  );
 
-				 				if( $i<count($resultat) ){
+				 				if( $i==count($resultat) ){
 
 				 					$resultat[]=array(
 				 										'ID' => $data['IDArticle'],
@@ -93,15 +92,20 @@
 				 	if(empty($resultat)) echo "<section>Votre requête n'a pas abouti</section>";
 				 	//vérifier si le tableau de resultat contient des valeurs et effectuer l'affichage adéquate.
 				  	else{
-				  		for($i=0; $i<count($resultat);$i++){
-				  			echo(
+
+				  		echo (
 				  				"<section>Voici la liste des articles présents sur ce site correspondant à votre recherche.</section>
 				  				<table>
-				  				<tr><th>Nom de l'article</th><th>Date</th></tr>
-				  				<tr><td><a href= article.php?id=".$resultat[$i]['ID'].">".$resultat[$i]['titre']."</a></td><td>".$resultat[$i]['date']."</td>
-				  				</tr></table>"
+				  				<tr><th>Nom de l'article</th><th>Date</th></tr>"
+				  			 );
+
+				  		for($i=0; $i<count($resultat);$i++){
+				  			echo("	<tr><td><a href= article.php?id=".$resultat[$i]['ID'].">".$resultat[$i]['titre']."</a></td><td>".$resultat[$i]['date']."</td>
+				  					</tr>"
 								);
 				  		}
+
+				  		echo "</table>";
 
 
 				  	}
