@@ -6,47 +6,50 @@
 
 					$valeur=$_GET['id'];
 
-					include_once("bdd.php");
+					require_once("bdd.php");
 
 					$bdd=Connect_db(); //connexion à la BDD
 
 					if( !empty($_POST['commentaire']) ){
 
- 							$query=$bdd->prepare('INSERT INTO Commentaire VALUES (?, ?, CURRENT_TIME(), ?) ');
- 							$query->execute( array($_SESSION['IDUtilisateur'],$valeur, $_POST['commentaire']) );
+ 							$query0=$bdd->prepare('INSERT INTO Commentaire VALUES (?, ?, CURRENT_TIME(), ?) ');
+ 							$query0->execute( array($_SESSION['IDUtilisateur'],$valeur, $_POST['commentaire']) );
 
  							$_POST['commentaire']="";
 
 					}					
 
- 					$query=$bdd->prepare('SELECT T1.Titre, T1.DateCreation, T1.URL, T1.Resume, T2.Commentaire,
- 												 T2.DateCommentaire, T3.Pseudonyme
+ 					$query1=$bdd->prepare('SELECT T1.Titre, T1.DateCreation, T1.URLArticle, T1.URLImage
  						 				  FROM Article AS T1
- 						 			 	  INNER JOIN Commentaire AS T2
- 						 			 	  ON T1.IDArticle=T2.IDArticle
- 						 			 	  INNER JOIN Utilisateur AS T3
- 						 			  	  ON T2.IDUtilisateur=T3.IDUtilisateur
- 						  			  	  WHERE T1.IDArticle=?
- 						  			  	  ORDER BY T2.DateCommentaire DESC');
- 					//requete permettant de récupérer les infos sur un article, commentaire, pseudonyme de l'utilisateur
-
- 					$query->execute( array($valeur) );
-
- 					while($data = $query->fetch()){
+ 						 			 	  WHERE T1.IDArticle=?');
+ 					$query1->execute( array($valeur) );
+ 					if ( ( $data1 = $query1->fetch() ) != NULL ){
 
  						$article[]=array(
-								'titre' => $data['Titre'],
-								'date' => $data['DateCreation'],
-								'url' => $data['URL'],
-								'resume' => $data['Resume'],
-								'commentaire' => $data['Commentaire'],
-								'dateCommentaire' => $data['DateCommentaire'],
-								'pseudonyme' => $data['Pseudonyme']
+								'titre' => $data1['Titre'],
+								'date' => $data1['DateCreation'],
+								'url' => $data1['URLArticle'],
+								'urlImage' => $data1['URLImage']
 								);
-
  					}
 
  					if ( !isset($article) ) header('Location: erreur.php');
+
+ 					$query2=$bdd->prepare('SELECT T1.Commentaire, T1.DateCommentaire, T2.Pseudonyme
+ 						 				  FROM Commentaire AS T1
+ 						 			 	  INNER JOIN Utilisateur AS T2
+ 						 			  	  ON T1.IDUtilisateur=T2.IDUtilisateur
+ 						  			  	  WHERE T1.IDArticle=?
+ 						  			  	  ORDER BY T1.DateCommentaire DESC');
+ 					$query2->execute( array($valeur) );
+ 					while($data2 = $query2->fetch()){
+
+ 						$commentaire[]=array(
+								'commentaire' => $data2['Commentaire'],
+								'dateCommentaire' => $data2['DateCommentaire'],
+								'pseudonyme' => $data2['Pseudonyme']
+								);
+ 					}
 	?>
 	<!DOCTYPE HTML>
 	<html>
@@ -58,7 +61,7 @@
 		<title> <?php echo ($article[0]['titre']) ?></title>
 	</head>
 
-		<?php include("element_principal.php"); ?>
+		<?php require_once("element_principal.php"); ?>
 
 		<?php
 			
@@ -66,15 +69,31 @@
 
  				if ( $fichier!=NULL ){
 
- 					$ligne=fgets($fichier);
- 					echo $ligne;
- 						while($ligne){
- 							$ligne=fgets($fichier);
- 							echo $ligne;
- 						}
+ 					if ($valeur == 1) {
 
+ 						$ligne=fgets($fichier);
+						echo $ligne;
+						while($ligne){
+							$ligne=fgets($fichier);
+							echo $ligne;
+						}
 
- 				}else echo 'Le fichier spécifié n\'a pas été trouvé';
+					}else{
+
+						echo "<article><h1>".$article[0]['titre']."</h1>";
+
+						$ligne=fgets($fichier);
+						echo  "<div>".$ligne;
+						while($ligne){
+							$ligne=fgets($fichier);
+							echo $ligne;
+						}
+						echo  "</div>";
+						echo "<aside><img src=".$article[0]['urlImage']." alt=Image : ".$article[0]['titre']."></aside>";
+						echo "</article>";
+					}
+
+ 				}else echo "<article> Le fichier demandé n'a pas pas été trouvé à l'adresse correspondante".$article[0]['url']."</article>";
 
  				fclose($fichier);
 		?>
@@ -84,11 +103,23 @@
 				<h1>Commentaire</h1>
 				<?php
 
-						for ($i=0; $i<count($article); $i++) {
+						if( empty($commentaire) ){
+
 							echo (
-								  "<section>".$article[$i]['pseudonyme']." Date : ".$article[$i]['dateCommentaire']."<p>".$article[$i]['commentaire'].
-							  	"</p></section>"
-							  	);
+									 "<section><p>
+									  Il n'y a pas de commentaire associé à cet article 
+								  	 </p></section>"
+								 );
+
+						}else{
+
+							for ($i=0; $i<count($commentaire); $i++) {
+								echo (
+									  "<section>".$commentaire[$i]['pseudonyme']." Date : ".$commentaire[$i]['dateCommentaire']."<p>"
+									  .$commentaire[$i]['commentaire'].
+								  	"</p></section>"
+								  	);
+							}
 						}
 					}
 				?>

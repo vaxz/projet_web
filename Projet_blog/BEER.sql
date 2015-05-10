@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Sam 09 Mai 2015 à 17:22
--- Version du serveur :  10.0.17-MariaDB-log
+-- Généré le :  Dim 10 Mai 2015 à 17:48
+-- Version du serveur :  10.0.18-MariaDB-log
 -- Version de PHP :  5.6.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -30,17 +30,19 @@ CREATE TABLE IF NOT EXISTS `Article` (
   `IDArticle` int(11) NOT NULL,
   `Titre` varchar(30) NOT NULL,
   `DateCreation` datetime NOT NULL,
-  `URL` varchar(100) NOT NULL,
+  `URLArticle` varchar(30) NOT NULL,
+  `URLImage` varchar(30) DEFAULT NULL,
   `Resume` varchar(300) NOT NULL,
   `IDUtilisateur` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `Article`
 --
 
-INSERT INTO `Article` (`IDArticle`, `Titre`, `DateCreation`, `URL`, `Resume`, `IDUtilisateur`) VALUES
-(1, 'La fabrication de la bière', '2015-03-15 00:00:00', 'articles/article1', 'Cet article parle de la fabrication de la bière comme l''indique le titre de l''article. A travers lui, il s''agit de présenter de manière non-exhaustive cette fameuse boisson alcoolisée sous différents angles.', 1);
+INSERT INTO `Article` (`IDArticle`, `Titre`, `DateCreation`, `URLArticle`, `URLImage`, `Resume`, `IDUtilisateur`) VALUES
+(1, 'La fabrication de la bière', '2015-03-15 00:00:00', 'articles/article1', NULL, 'Cet article parle de la fabrication de la bière comme l''indique le titre de l''article. A travers lui, il s''agit de présenter de manière non-exhaustive cette fameuse boisson alcoolisée sous différents angles.', 1),
+(2, 'La Quadruple', '2015-05-10 12:32:56', 'articles/article2', 'articles/assets/image2', 'Présentation de la Quadruple', 2);
 
 -- --------------------------------------------------------
 
@@ -62,28 +64,6 @@ CREATE TABLE IF NOT EXISTS `Commentaire` (
 INSERT INTO `Commentaire` (`IDArticle`, `IDUtilisateur`, `DateCommentaire`, `Commentaire`) VALUES
 (1, 1, '2015-03-21 00:00:00', 'C''était juste pour rien dire'),
 (1, 2, '2015-03-25 00:00:00', 'C''est vraiment très interessant comme article');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `Mot_clef`
---
-
-CREATE TABLE IF NOT EXISTS `Mot_clef` (
-  `IDArticle` int(11) NOT NULL,
-  `Mot_clef` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `Mot_clef`
---
-
-INSERT INTO `Mot_clef` (`IDArticle`, `Mot_clef`) VALUES
-(1, 'ale'),
-(1, 'biere'),
-(1, 'fabrication'),
-(1, 'fermentation'),
-(1, 'lager');
 
 -- --------------------------------------------------------
 
@@ -127,16 +107,11 @@ ALTER TABLE `Commentaire`
   ADD KEY `FK_Commentaire_IDUtilisateur` (`IDUtilisateur`);
 
 --
--- Index pour la table `Mot_clef`
---
-ALTER TABLE `Mot_clef`
-  ADD PRIMARY KEY (`IDArticle`,`Mot_clef`);
-
---
 -- Index pour la table `Utilisateur`
 --
 ALTER TABLE `Utilisateur`
-  ADD PRIMARY KEY (`IDUtilisateur`);
+  ADD PRIMARY KEY (`IDUtilisateur`),
+  ADD UNIQUE KEY `Pseudonyme` (`Pseudonyme`);
 
 --
 -- AUTO_INCREMENT pour les tables exportées
@@ -146,7 +121,7 @@ ALTER TABLE `Utilisateur`
 -- AUTO_INCREMENT pour la table `Article`
 --
 ALTER TABLE `Article`
-  MODIFY `IDArticle` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `IDArticle` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `Utilisateur`
 --
@@ -168,12 +143,6 @@ ALTER TABLE `Article`
 ALTER TABLE `Commentaire`
   ADD CONSTRAINT `FK_Commentaire_IDArticle` FOREIGN KEY (`IDArticle`) REFERENCES `Article` (`IDArticle`),
   ADD CONSTRAINT `FK_Commentaire_IDUtilisateur` FOREIGN KEY (`IDUtilisateur`) REFERENCES `Utilisateur` (`IDUtilisateur`);
-
---
--- Contraintes pour la table `Mot_clef`
---
-ALTER TABLE `Mot_clef`
-  ADD CONSTRAINT `FK_Mot_clef_IDArticle` FOREIGN KEY (`IDArticle`) REFERENCES `Article` (`IDArticle`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -12,92 +12,136 @@
 
 	<body>
 
-		<?php include("element_principal.php"); ?>
+		<?php require_once("element_principal.php"); ?>
 
 		<article>
 
-	<?php
+			<?php
 
-			if ( !empty($_POST['valider']) ){
+					if ( !empty($_POST['valider']) ){
 
-				if( empty($_POST['titre']) ){
+						if( empty($_POST['titre']) ){
 
-					echo ( "<section>
-							Vous avez oublier de mettre un titre
-							</section>"
-						 );
-
-
-				}else if ( empty($_POST['article']) ){
-
-					echo ( "<section>
-							Vous n'avez pas écrit d'article
-							</section>"
-						 );
+							echo ( "<section>
+									Vous avez oublier de mettre un titre
+									</section>"
+								 );
 
 
-				}else if ( empty($_POST['resume']) ){
+						}else if ( empty($_POST['article']) ){
 
-					echo ( "<section>
-							Vous n'avez pas écrit d'article
-							</section>"
-						 );
+							echo ( "<section>
+									Vous n'avez pas écrit d'article
+									</section>"
+								 );
 
-				}else if ( empty($_FILE['fichier']) )
 
-					echo ( "<section>
-							Vous n'avez pas mis d'illustration
-							</section>"
-						 );
+						}else if ( empty($_POST['resume']) ){
 
-				else{
+							echo ( "<section>
+									Vous n'avez pas écrit de resumé
+									</section>"
+								 );
 
-					include_once("bdd.php");
-					$bdd=Connect_db(); //connexion à la BDD
+						}else if ( $_FILES['fichier']['error'] != 0  ) {
 
-					$query0=$bdd->prepare('SELECT COUNT(T1.IDArticle)
- 						 				   FROM Article AS T1
- 						 			 	   ');
-					$query0->execute();
-					$data0 = $query0->fetch();
-					$url="articles/article".$data0[0];
-					$query0->closeCursor();
+							echo ( "<section>
+									Vous n'avez pas mis d'illustration
+									</section>"
+								 );
 
-					$query1=$bdd->prepare('INSERT INTO Article (Titre, DateCreation, URL, Resume, IDUtilisateur)
-										  VALUES (?, CURRENT_TIME(), ?, ?, ?) ');
-					$query1->execute( array($_POST['titre'],$url, $_POST['resume']), $_SESSION['IDUtilisateur'] );
+						}else{
 
-					if ( isset($_FILES['fichier']) AND $_FILES['fichier']['error'] == 0 AND $_FILES['fichier']['size'] <= 1048576) {  // 1Mo
-   							
-   							$infosfichier = pathinfo($_FILES['fichier']['name']);
-   							$ext_upload = $infosfichier['extension'];
-   							$ext_autorisees = array('jpg', 'jpeg', 'gif', 'png');
-   
-   						if (in_array($ext_upload, $ext_autorisees)) {
-    							move_uploaded_file($_FILES['fichier']['tmp_name'],
-     							'destination/' . basename($_FILES['fichier']['name']));
-   						}
-   					}
+								if ( $_FILES['fichier']['size'] <= 1048576 ) {  // 1Mo
+		   							
+		   								$infosfichier = pathinfo($_FILES['fichier']['name']);
+		   								$ext_upload = $infosfichier['extension'];
+		   								$ext_autorisees = array('jpg', 'jpeg', 'gif', 'png');
+		   		
+		   							if (in_array($ext_upload, $ext_autorisees)) {
+		    								
+		    								require_once("bdd.php");
+											$bdd=Connect_db(); //connexion à la BDD
 
-				}
+											$query0=$bdd->prepare('SELECT COUNT(T1.IDArticle)
+			 									 				   FROM Article AS T1
+		 										 			 	   ');
+											$query0->execute();
+											$data0 = $query0->fetch();									
+											$urlImage="articles/assets/image".( $data0[0]+1 );
+											$urlArticle="articles/article".( $data0[0]+1 );									
+											$query0->closeCursor();
 
-			}else{
+											if ( move_uploaded_file( $_FILES['fichier']['tmp_name'], 
+																	'articles/assets/'.basename($_FILES['fichier']['name']) ) AND 
+												 rename ( 'articles/assets/'.basename($_FILES['fichier']['name']), $urlImage ) ){
 
-				echo ( "<section>
-					   Si vous souhaitez ajouter vos articles, n'hésitez pas.
-					   </section>"
-					  );
+			    								$fichierArticle=fopen($urlArticle,'w+');
 
-			}
+								 				if ( $fichierArticle!=NULL ) {
 
-	?>			
+								 					fputs( $fichierArticle, $_POST['article'] );
+
+
+								 					$query1=$bdd->prepare('INSERT INTO Article (Titre, DateCreation, URLArticle, URLImage, Resume, IDUtilisateur)
+																	  	   VALUES (?, CURRENT_TIME(), ?, ?, ?, ?)' 
+																	  	   );
+													$query1->execute( array( $_POST['titre'], $urlArticle, $urlImage, $_POST['resume'], $_SESSION['IDUtilisateur'] ) );
+
+								 				}else{
+
+								 					echo ( "<section>
+															La création du fichier article a échoué
+															</section>"
+								 	 		  			 );
+								 				}
+
+								 				fclose($fichierArticle);
+
+											}else{
+
+												echo ( "<section>
+														L'envoi du fichier image a échoué
+														</section>"
+								 	 		  		);
+
+											}    								
+		   							
+		   							}else {
+
+		   								echo ( "<section>
+												L'extension de fichier n'est pas autorisé.
+												</section>"
+								 	 		  );
+		   							}
+
+		   						}else{
+
+		   							echo ( "<section>
+											La taille du votre fichier est supérieur à 1 MO.
+											</section>"
+								 	 	 );
+		   						}
+							}
+					}else{
+
+						echo ( "<section>
+							   Si vous souhaitez ajouter vos articles, n'hésitez pas.
+							   </section>"
+							  );
+
+					}
+
+			?>			
 
 		  <form action=# method="post" enctype="multipart/form-data">
 		  	<input placeholder="Titre de votre article" name="titre">
 		  	<textarea rows="40" placeholder="Rédiger votre article" name="article"></textarea>
 		  	<textarea rows="40" placeholder="Rédiger votre resume" name="resume"></textarea>
-		  	<p>Ajouter votre illustration <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
-		  	<input type="file" name="fichier" ></p>		  	
+		  	<p>Ajouter votre illustration (Taille max 1 MO, extensions autorisées : jpg, jpeg, gif, png )
+		  		<input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+		  		<input type="file" name="fichier" >
+		  	</p>		  	
 			<input type="submit" name="valider" value="Valider">
 		  </form>
 		</article>
