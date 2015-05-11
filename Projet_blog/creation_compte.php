@@ -19,8 +19,10 @@
 						if(empty($_POST['creation'])) {
 							echo('<form action="#" method="post">
 									<input type="hidden" name="creation" value="1"/>
-									<input type="text" name="pseudo" placeholder="Identifiant" required"/>
-									<input type="password" name="mdp" placeholder="Mot de passe" required/>
+									<p>Identifiant de longueur comprise entre 1 et 20 caractères</p>
+									<input type="text" name="pseudo" placeholder="Identifiant" pattern=".{1,20}" required/>
+									<p>Mot de passe de longueur comprise entre 5 et 20 caractères</p>
+									<input type="password" name="mdp" placeholder="Mot de passe" pattern=".{5,20}" required/>
 									<button>Soumettre</button>
 									</form>');
 						} else {
