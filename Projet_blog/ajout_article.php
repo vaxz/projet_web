@@ -88,6 +88,21 @@
 																	  	   );
 													$query1->execute( array( $_POST['titre'], $urlArticle, $urlImage, $_POST['resume'], $_SESSION['IDUtilisateur'] ) );
 
+													$query2=$bdd->prepare('SELECT T1.IDArticle
+													 						FROM Article AS T1
+													 						WHERE T1.Titre=?
+																			');
+												 	$query2->execute( array($_POST['titre']) );
+												 	$data2 = $query2->fetch();
+												 	$lien[]=array(	'idArticle' => $data2['IDArticle'] );
+												 	$query2->closeCursor();
+
+												 	echo ( "<section>
+															Vous pouvez accéder à votre
+															<a href=article.php?id=".$lien[0]['idArticle']."> article </a>
+															</section>"
+								 	 		  			 );
+
 								 				}else{
 
 								 					echo ( "<section>

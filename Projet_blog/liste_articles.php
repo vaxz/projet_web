@@ -26,7 +26,7 @@
 					for($c=0; $c<count($liste) ;$c++){
 					//parcours du tableau "liste"
 					
-						if( $liste[$c]!=" "){
+						if( $liste[$c]!=" " AND $liste[$c]!="\n" ){
 						//tant que le caractère courant issu du tableau "liste" n'est pas un espace, il est ajouté dans "temp"
 					
 							if(empty($temp)) $temp=$liste[$c];

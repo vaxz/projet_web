@@ -90,7 +90,7 @@
 							echo $ligne;
 						}
 						echo  "</div>";
-						echo "<aside><img src=".$article[0]['urlImage']." alt=Image : ".$article[0]['titre']."></aside>";
+						echo "<aside><img src=".$article[0]['urlImage']." alt=Image : ".$article[0]['titre']." height=auto width=250px></aside>";
 						echo "</article>";
 					}
 
