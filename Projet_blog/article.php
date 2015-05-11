@@ -4,7 +4,8 @@
 		if( empty($_GET['id']) OR !is_numeric($_GET['id']) OR $_GET['id']<1 ) header('Location: erreur.php');
 		else{
 
-					$valeur=$_GET['id'];
+					//$valeur=$_GET['id'];
+
 
 					require_once("bdd.php");
 
@@ -13,7 +14,7 @@
 					if( !empty($_POST['commentaire']) ){
 
  							$query0=$bdd->prepare('INSERT INTO Commentaire VALUES (?, ?, CURRENT_TIME(), ?) ');
- 							$query0->execute( array($_SESSION['IDUtilisateur'],$valeur, $_POST['commentaire']) );
+ 							$query0->execute( array($_GET['id'],$_SESSION['IDUtilisateur'], $_POST['commentaire']) );
 
  							$_POST['commentaire']="";
 
@@ -22,7 +23,7 @@
  					$query1=$bdd->prepare('SELECT T1.Titre, T1.DateCreation, T1.URLArticle, T1.URLImage
  						 				  FROM Article AS T1
  						 			 	  WHERE T1.IDArticle=?');
- 					$query1->execute( array($valeur) );
+ 					$query1->execute( array($_GET['id']) );
  					if ( ( $data1 = $query1->fetch() ) != NULL ){
 
  						$article[]=array(
@@ -41,7 +42,7 @@
  						 			  	  ON T1.IDUtilisateur=T2.IDUtilisateur
  						  			  	  WHERE T1.IDArticle=?
  						  			  	  ORDER BY T1.DateCommentaire DESC');
- 					$query2->execute( array($valeur) );
+ 					$query2->execute( array($_GET['id']) );
  					while($data2 = $query2->fetch()){
 
  						$commentaire[]=array(
@@ -69,7 +70,7 @@
 
  				if ( $fichier!=NULL ){
 
- 					if ($valeur == 1) {
+ 					if ($_GET['id'] == 1) {
 
  						$ligne=fgets($fichier);
 						echo $ligne;
