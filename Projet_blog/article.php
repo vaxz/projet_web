@@ -11,12 +11,14 @@
 
 					$bdd=Connect_db(); //connexion à la BDD
 
-					if( !empty($_POST['commentaire']) ){
+					if( !empty($_POST['commentaire']) && !empty($_SESSION['pseudonyme']) ){
 
  							$query0=$bdd->prepare('INSERT INTO Commentaire VALUES (?, ?, CURRENT_TIME(), ?) ');
  							$query0->execute( array($_GET['id'],$_SESSION['IDUtilisateur'], $_POST['commentaire']) );
 
  							$_POST['commentaire']="";
+
+ 							
 
 					}					
 

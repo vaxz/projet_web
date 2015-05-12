@@ -45,7 +45,7 @@
 				                          INNER JOIN Utilisateur AS T2
 				                          ON T1.IDUtilisateur=T2.IDUtilisateur
 				                          WHERE T1.IDArticle=?
-				 						  ORDER BY T2.DateCommentaire DESC');
+				 						  ORDER BY T1.DateCommentaire DESC');
 				 	$query1->execute( array($article[0]['id']) );
 				 	if ( ( $data1 = $query1->fetch() ) != NULL ){ 
 						 	$commentaire[]=array(
