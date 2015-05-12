@@ -63,7 +63,7 @@
 			<section>
 					<?php 
 
-						  if ( empty($commentaire) ) echo "<p> Il n'y a pas de commentaire associer à cet article</p>" ;
+						  if ( empty($commentaire) ) echo "<p> Il n'y a pas de commentaire associé à cet article</p>" ;
 						  else{
 
 						  		echo $commentaire[0]['pseudonyme']." ".$commentaire[0]['dateCommentaire'];

@@ -21,15 +21,15 @@
 				
 					$liste=str_split( strtolower($_POST['recherche']) ); //conversion de la chaîne de caractère en tableau de caractères nommé "liste"
 					$indice=0; //indice permettant de parcourir le tableau "tabmot" qui contiendra les mots issus de "liste"
-					$temp='';  //initialisation de la variable temporaire permettant de stocker chaque caractère issu du tableau "liste"
+					$temp='';
 
 					for($c=0; $c<count($liste) ;$c++){
 					//parcours du tableau "liste"
 					
-						if( $liste[$c]!=" " AND $liste[$c]!="\n" ){
+						if( $liste[$c]!=" " AND $liste[$c]!="\n" AND $liste[$c]!="\r" ){
 						//tant que le caractère courant issu du tableau "liste" n'est pas un espace, il est ajouté dans "temp"
 					
-							if(empty($temp)) $temp=$liste[$c];
+							if( empty($temp) ) $temp=$liste[$c];
 							else $temp=$temp.$liste[$c];
 					
 						}else{
@@ -41,15 +41,15 @@
 						}
 					}
 
-					$tabmot[$indice]=$temp;
+					if($temp!='') $tabmot[$indice]=$temp;
 					//ajout dernier contenu de la variable "temp" dans "tabmot"
 
-					include ("bdd.php");
+					require_once ("bdd.php");
 					$bdd=Connect_db(); //connexion à la BDD
 					
 					$query=$bdd->prepare('SELECT IDArticle, Titre, DateCreation
 										  FROM Article 
-										  WHERE lower(Titre) LIKE ? ');
+										  WHERE lower(Titre) LIKE ?');
 					//requete permettant de vérifier si les mots contenus dans "tabmot" font partie de la table "mot-clefs" de la base de donnée
 					//améliorer la requête avec une recherche par motif
 
@@ -58,7 +58,7 @@
 				 	foreach($tabmot as $mot){
 				 	//boucle permettant de parcourir "tabmot". Pour chaque mot contenu dans le tableau, la requête SQL est exécuté
 
-				 		$query->execute(array('%'.$mot.'%'));
+				 		$query->execute( array('%'.$mot.'%') );
 
 				 		while( $data = $query->fetch() ){
 

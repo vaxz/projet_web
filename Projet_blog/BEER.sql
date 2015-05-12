@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Dim 10 Mai 2015 à 17:48
+-- Généré le :  Mar 12 Mai 2015 à 12:48
 -- Version du serveur :  10.0.18-MariaDB-log
 -- Version de PHP :  5.6.8
 
@@ -34,15 +34,16 @@ CREATE TABLE IF NOT EXISTS `Article` (
   `URLImage` varchar(30) DEFAULT NULL,
   `Resume` varchar(300) NOT NULL,
   `IDUtilisateur` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `Article`
 --
 
 INSERT INTO `Article` (`IDArticle`, `Titre`, `DateCreation`, `URLArticle`, `URLImage`, `Resume`, `IDUtilisateur`) VALUES
-(1, 'La fabrication de la bière', '2015-03-15 00:00:00', 'articles/article1', NULL, 'Cet article parle de la fabrication de la bière comme l''indique le titre de l''article. A travers lui, il s''agit de présenter de manière non-exhaustive cette fameuse boisson alcoolisée sous différents angles.', 1),
-(2, 'La Quadruple', '2015-05-10 12:32:56', 'articles/article2', 'articles/assets/image2', 'Présentation de la Quadruple', 2);
+(1, 'La fabrication de la bière', '2015-03-15 00:00:00', 'articles/article1', NULL, 'Cet article parle de la fabrication de la bière comme l''indique le titre de l''article. A travers lui, il s''agit de présenter de manière non-exhaustive cette fameuse boisson alcoolisée sous différents angles.', 2),
+(2, 'La Quadruple', '2015-05-10 12:32:56', 'articles/article2', 'articles/assets/image2', 'Présentation de la Quadruple', 2),
+(3, 'sdqsdgsq', '2015-05-11 14:03:15', 'articles/article3', 'articles/assets/image3', 'cxbsqdjo', 2);
 
 -- --------------------------------------------------------
 
@@ -63,7 +64,9 @@ CREATE TABLE IF NOT EXISTS `Commentaire` (
 
 INSERT INTO `Commentaire` (`IDArticle`, `IDUtilisateur`, `DateCommentaire`, `Commentaire`) VALUES
 (1, 1, '2015-03-21 00:00:00', 'C''était juste pour rien dire'),
-(1, 2, '2015-03-25 00:00:00', 'C''est vraiment très interessant comme article');
+(1, 2, '2015-03-25 00:00:00', 'C''est vraiment très interessant comme article'),
+(1, 2, '2015-05-11 08:26:47', 'test'),
+(2, 1, '2015-05-11 08:29:21', 'cool');
 
 -- --------------------------------------------------------
 
@@ -111,7 +114,8 @@ ALTER TABLE `Commentaire`
 --
 ALTER TABLE `Utilisateur`
   ADD PRIMARY KEY (`IDUtilisateur`),
-  ADD UNIQUE KEY `Pseudonyme` (`Pseudonyme`);
+  ADD UNIQUE KEY `Pseudonyme` (`Pseudonyme`),
+  ADD UNIQUE KEY `Pseudonyme_2` (`Pseudonyme`);
 
 --
 -- AUTO_INCREMENT pour les tables exportées
@@ -121,7 +125,7 @@ ALTER TABLE `Utilisateur`
 -- AUTO_INCREMENT pour la table `Article`
 --
 ALTER TABLE `Article`
-  MODIFY `IDArticle` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `IDArticle` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `Utilisateur`
 --

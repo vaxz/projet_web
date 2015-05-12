@@ -15,50 +15,37 @@
 		<div>
 			<form action="liste_articles.php" method="post">
 				<h3>Recherche</h3>
-				<textarea placeholder="Saisir votre recherche" name="recherche"></textarea>
+				<input placeholder="Saisir votre recherche" name="recherche"></input>
 				<button>Valider</button>
 			</form>
 		</div>
 		
 			<?php
 
-				if (!empty($_POST['deco'])){
+				if ( !empty($_POST['deco']) ){
 
 					session_destroy();
 					header("Refresh:0");
 
 				}
 
-				if( empty($_SESSION['pseudonyme'])){
+				include_once("bdd.php");
+
+				$bdd=Connect_db(); //connexion à la BDD
+
+				if( empty($_SESSION['pseudonyme']) ){
 
 					if( !empty($_POST['ID']) && !empty($_POST['MDP']) ){
 						
-						include_once("bdd.php");
-
-						$bdd=Connect_db(); //connexion à la BDD
-
- 						$query0=$bdd->prepare('SELECT T1.IDUtilisateur, T1.Pseudonyme, T1.Mot_passe, T1.Webmaster, T1.DateCreationUtilisateur
+						$query0=$bdd->prepare('SELECT T1.IDUtilisateur, T1.Pseudonyme, T1.Mot_passe, T1.Webmaster, T1.DateCreationUtilisateur
  						  					  FROM Utilisateur AS T1
  						  					  WHERE lower(T1.Pseudonyme)=lower(?)
  						  					  AND lower(T1.Mot_passe)=lower(?)'
  						  					  );
 
- 						$query1=$bdd->prepare('SELECT COUNT(T2.Commentaire)
- 						  					  FROM Utilisateur AS T1
- 						  					  INNER JOIN Commentaire AS T2
- 						  					  ON T1.IDUtilisateur=T2.IDUtilisateur
- 						  					  WHERE lower(T1.Pseudonyme)=lower(?)'
- 						  					  );
-
- 						$query2=$bdd->prepare('SELECT COUNT(T2.IDArticle)
- 						  					  FROM Utilisateur AS T1
- 						  					  INNER JOIN Article AS T2
- 						  					  ON T1.IDUtilisateur=T2.IDUtilisateur
- 						  					  WHERE lower(T1.Pseudonyme)=lower(?)'
- 						  					  );
-
  						$query0->execute(array($_POST['ID'],$_POST['MDP']));
  						$data0 = $query0->fetch();
+ 						$query0->closeCursor();
 
  						if( empty($data0['Pseudonyme']) && empty($data0['Mot_passe']) ){
  							echo (	
@@ -74,23 +61,12 @@
  							$_SESSION['pseudonyme']= $data0['Pseudonyme'];
 							if ( $data0['Webmaster']==1 ) $_SESSION['statut']="webmaster";
 							else $_SESSION['statut']="utilisateur";
-							$_SESSION['date']=$data0['DateCreationUtilisateur'];
-
-							$query1->execute(array($_POST['ID']));
-							$data1 = $query1->fetch();
-							$_SESSION['nb_commentaire']=$data1[0];
-
-							$query2->execute(array($_POST['ID']));
-							$data2 = $query2->fetch();
-							$_SESSION['nb_article']=$data2[0];
-
-							$query1->closeCursor();
- 							$query2->closeCursor();
+							$_SESSION['date']=$data0['DateCreationUtilisateur'];							
  							
  							header("Refresh:0");
 
  						}
- 						$query0->closeCursor();
+ 						
  								
 
 
@@ -108,6 +84,31 @@
 					}
 
 				}else{
+
+					$query1=$bdd->prepare('SELECT COUNT(T2.Commentaire)
+ 						  					  FROM Utilisateur AS T1
+ 						  					  INNER JOIN Commentaire AS T2
+ 						  					  ON T1.IDUtilisateur=T2.IDUtilisateur
+ 						  					  WHERE lower(T1.Pseudonyme)=lower(?)'
+ 						  					  );
+
+					$query2=$bdd->prepare('SELECT COUNT(T2.IDArticle)
+					  					  FROM Utilisateur AS T1
+					  					  INNER JOIN Article AS T2
+					  					  ON T1.IDUtilisateur=T2.IDUtilisateur
+					  					  WHERE lower(T1.Pseudonyme)=lower(?)'
+					  					  );
+
+					$query1->execute( array($_SESSION['pseudonyme']) );
+					$data1 = $query1->fetch();
+					$_SESSION['nb_commentaire']=$data1[0];
+
+					$query2->execute( array($_SESSION['pseudonyme']) );
+					$data2 = $query2->fetch();
+					$_SESSION['nb_article']=$data2[0];
+
+					$query1->closeCursor();
+					$query2->closeCursor();
 
 					echo(
 									'<div>
